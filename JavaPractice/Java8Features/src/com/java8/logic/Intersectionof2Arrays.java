@@ -15,13 +15,13 @@ public class Intersectionof2Arrays {
 		int[] y = { 1, 0, 9, 8, 7, 6, 5, 4 };
 
 		int[] intersectionArray = intersectionof2Arrays.getIntersectionByContains(x, y);
-		System.out.println("using Frequency \n");
+		System.out.println("using Frequency of size: "+ intersectionArray.length);
 		for (int i : intersectionArray) {
 			System.out.println(i);
 		}
 
 		int[] intersectionOfArraysUsingRetainALL = intersectionof2Arrays.getIntersectionOfArraysUsingRetainALL(x, y);
-		System.out.println("using retainAll \n");
+		System.out.println("using retainAll of size: " +intersectionOfArraysUsingRetainALL.length);
 		for (int i : intersectionOfArraysUsingRetainALL) {
 			System.out.println(i);
 		}
@@ -66,7 +66,9 @@ public class Intersectionof2Arrays {
 									.toArray(Integer[]::new));
 		list1 = list1.stream().filter(list2::contains).collect(Collectors.toList());
 
-		return list1.stream().mapToInt(Integer::new).toArray();
+		return list1
+				.stream()
+				.mapToInt(Integer::new).toArray();
 	}
 
 }

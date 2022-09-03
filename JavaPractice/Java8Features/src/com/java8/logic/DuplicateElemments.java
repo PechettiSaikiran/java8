@@ -12,14 +12,18 @@ import java.util.stream.Collectors;
 public class DuplicateElemments {
 
 	public static void main(String[] args) {
+		
 		DuplicateElemments duplicateElemments = new DuplicateElemments();
 		List<Integer> numberList = Arrays.asList(1, 2, 3, 4, 5,4,8,5,7,8,9);
+
+		System.out.println("using Frequency");
 		Set<Integer> duplicateElements= duplicateElemments.getDuplicateByFrequency(numberList);
 		duplicateElements.forEach(System.out::println);
-		System.out.println("using grouping");
 		
+		System.out.println("using grouping");
 		Set<Integer> duplicateElementsUsingGrouping=duplicateElemments.getDuplicateByGrouping(numberList);
 		duplicateElementsUsingGrouping.forEach(System.out::println);
+		
 		System.out.println("using SETADD");
 		Set<Integer> duplicateElementsUsingSetAdd=duplicateElemments.getDuplicateSetAdd(numberList);
 		duplicateElementsUsingSetAdd.forEach(System.out::println);
@@ -34,7 +38,6 @@ public class DuplicateElemments {
 	}
 
 	public <T> Set<T> getDuplicateByGrouping(List<T> elementsList) {
-
 		return elementsList
 				.stream()
 				.collect(Collectors.groupingBy(Function.identity(),Collectors.counting()))
@@ -48,7 +51,9 @@ public class DuplicateElemments {
 	
 	public <T> Set<T> getDuplicateSetAdd(List<T>elementList){
 		Set<T> items= new HashSet<>();
-		return elementList.stream().filter(a->!items.add(a))
+		return elementList
+				.stream()
+				.filter(a->!items.add(a))
 				.collect(Collectors.toSet());
 	}
 	

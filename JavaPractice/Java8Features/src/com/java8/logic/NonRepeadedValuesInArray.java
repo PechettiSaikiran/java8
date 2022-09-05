@@ -15,8 +15,10 @@ public class NonRepeadedValuesInArray {
 		NonRepeadedValuesInArray nonRepeadedValuesInArray = new NonRepeadedValuesInArray();
 		List<Integer> numberList = Arrays.asList(1, 2, 3, 4, 5,4,8,5,7,8,9);
 
+		System.out.println("Collectiosn GroupBy");
 		Set<Integer> numberSet= nonRepeadedValuesInArray.getNonRepeatedValuesUsingGroupingBy(numberList);
 		numberSet.forEach(System.out::println);
+		
 		System.out.println("Collectiosn Frequency");
 		Set<Integer> numberSet1= nonRepeadedValuesInArray.getNonRepeatedValuesUsingFrequent(numberList);
 		numberSet1.forEach(System.out::println);

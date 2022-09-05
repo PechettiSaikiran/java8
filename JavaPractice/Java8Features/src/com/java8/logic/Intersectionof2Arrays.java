@@ -64,11 +64,15 @@ public class Intersectionof2Arrays {
 									.stream(y)
 									.boxed()
 									.toArray(Integer[]::new));
-		list1 = list1.stream().filter(list2::contains).collect(Collectors.toList());
+		list1 = list1
+				.stream()
+				.filter(list2::contains)
+				.collect(Collectors.toList());
 
 		return list1
 				.stream()
-				.mapToInt(Integer::new).toArray();
+				.mapToInt(Integer::new)
+				.toArray();
 	}
 
 }

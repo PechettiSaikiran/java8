@@ -38,6 +38,10 @@ public class DuplicateElemments {
 	}
 
 	public <T> Set<T> getDuplicateByGrouping(List<T> elementsList) {
+	Map<T, Long> map=	elementsList
+		.stream()
+		.collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
+	System.out.println(map);
 		return elementsList
 				.stream()
 				.collect(Collectors.groupingBy(Function.identity(),Collectors.counting()))
